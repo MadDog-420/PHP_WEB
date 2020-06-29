@@ -2,11 +2,7 @@ body{
     background-color: white;
     font-family: 'Work Sans', sans-serif;
 }
-#header{
-    width: 100%;
-    z-index: 1010;
-    padding: 20px 0;
-
+.dark-grad{
     background: rgba(0,0,0,1);
     background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
     background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,1)), color-stop(100%, rgba(255,255,255,0)));
@@ -15,6 +11,14 @@ body{
     background: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
     background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#ffffff', GradientType=0 );
+}
+#header{
+    width: 100%;
+    z-index: 1010;
+    padding: 20px 0;
+}
+main{
+    padding: 150px 10% 50px 10%;
 }
 
 /*-------------NAV-BAR--------------*/
@@ -64,7 +68,7 @@ nav img{
     width: 100%;
     height: 3px;
     display: block;
-    background-color: #332f2b;
+    background-color: #fff;
     border-radius: 2px;
 }
 .icon-menu span:nth-child(1){
@@ -98,7 +102,7 @@ nav img{
 
 /*-------------FOOTER--------------*/
 footer{
-    background-color: #332f2b;
+    background-color: rgba(0,0,0,0.9);
 }
 footer .row>div{
     height: auto;
@@ -110,11 +114,14 @@ footer a{
 footer .nav-link:hover{
     color: rgba(0,0,0,0.7);
 }
+copyright{
+    color: #fff;
+}
 /*-------------/FOOTER--------------*/
 
 /*-------------RESPONSIVE--------------*/
 @media screen and (max-width: 424px){
-    #navbar-brand-cont h4{
+    #navbar-brand-cont h5{
         display: none;
     }
 }
@@ -122,14 +129,10 @@ footer .nav-link:hover{
     #header{
         position: relative;
         top: 0;
-        background: #080cfc !important;
-    }
-    .ghost{
-        height: 0;
-        display: none;
+        background: #332f2b !important;
     }
     main{
-        margin-top: 0;
+        padding-top: 50px;
     }
 }
 /*-------------/RESPONSIVE--------------*/
