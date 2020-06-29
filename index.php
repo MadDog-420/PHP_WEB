@@ -1,3 +1,17 @@
+<?php
+    session_start();
+    
+    if(!isset($_SESSION['page']))
+        $_SESSION['page'] = "resolution";
+    else if (isset($_GET['page']) && $_SESSION['page'] != $_GET['page'] && !empty($_GET['page'])) {
+        if($_GET['page'] == "home")
+            $_SESSION['page'] = "resolution";
+        else if($_GET['page'] == "nosotros")
+            $_SESSION['page'] = "nosotros";
+        else if($_GET['page'] == "resolution")
+            $_SESSION['page'] = "resolution";
+    }
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,22 +33,7 @@
     <body>
         <?php require_once "header.php";?>
         <main>
-            <?php
-                session_start();
-    
-                if(!isset($_SESSION['page']))
-                    $_SESSION['page'] = "resolution";
-                else if (isset($_GET['page']) && $_SESSION['page'] != $_GET['page'] && !empty($_GET['page'])) {
-                    if($_GET['page'] == "home")
-                        $_SESSION['page'] = "resolution";
-                    else if($_GET['page'] == "nosotros")
-                        $_SESSION['page'] = "nosotros";
-                    else if($_GET['page'] == "resolution")
-                        $_SESSION['page'] = "resolution";
-                }
-
-                require_once $_SESSION['page'] . ".php";
-            ?>
+            <?php require_once $_SESSION['page'] . ".php";?>
         </main>
         <?php require_once "footer.php";?>
     </body>
