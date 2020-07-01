@@ -1,6 +1,6 @@
 <?php
 
-    ejercicio1(3);
+    ejercicio1(2);
     ejercicio2(5,4);
     echo ejercicio3(5);
     

@@ -1,98 +1,56 @@
 body{
     background-color: white;
-    font-family: 'Work Sans', sans-serif;
-}
-.dark-grad{
-    background: rgba(0,0,0,1);
-    background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,1)), color-stop(100%, rgba(255,255,255,0)));
-    background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
-    background: -o-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
-    background: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
-    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#ffffff', GradientType=0 );
-}
-#header{
-    width: 100%;
-    z-index: 1010;
-    padding: 20px 0;
+    font-family: 'Work Sans', sans-serif !important;
 }
 main{
-    padding: 150px 10% 50px 10%;
+    padding: 50px 10%;
 }
 
-/*-------------NAV-BAR--------------*/
-.navbar{
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+.header-area .main-header .menu-wrapper .main-menu ul li a{
+    text-transform: uppercase !important;
+    font-weight: normal;
 }
-#navbar-brand-cont{
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
+.header-area .main-header .menu-wrapper .header-right span{
+    padding: 0 19px !important;
 }
-nav img{
-    width: 140px;
+.logo img{
+    vertical-align: initial;
 }
-#navbar-brand-cont h5{
-    font-family: 'MuseoModerno', cursive;
-    height: fit-content;
-    margin: auto;
-    color: #fff;
-}
-.navbar-brand{
-    padding: 0 !important;
-}
-.nav-link{
-    padding: 20px 15px !important;
-    font-size: 14px;
-    font-stretch: expanded !important;
-    text-transform: uppercase;
-    background-color: transparent !important;
-    
-}
-/*-------------/NAV-BAR--------------*/
 
 /*-------------MENU-BUTTON--------------*/
-.icon-menu{
-    width: 22px;
-    height: 17px;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
+.slicknav_btn{
+    top: -28px !important;
+    margin-top: -5px !important;
 }
-.icon-menu span{
+.slicknav_icon span{
     width: 100%;
     height: 3px;
     display: block;
-    background-color: #fff;
+    background-color: #333333 !important;
     border-radius: 2px;
 }
-.icon-menu span:nth-child(1){
+.slicknav_icon span:nth-child(1){
     transform: rotate(0deg);
     transition: all .5s;
 }
-.icon-menu span:nth-child(2){
+.slicknav_icon span:nth-child(2){
     transition: all .5s;
 }
-.icon-menu span:nth-child(3){
+.slicknav_icon span:nth-child(3){
     transform: rotate(0deg);
     transition: all .5s;
 }
-.icon-menu.collap span:nth-child(1){
+.slicknav_open .slicknav_icon span:nth-child(1){
     width: 100%;
     -webkit-transform: rotate(45deg) translate(4px,5px);
     transform: rotate(45deg) translate(4px,5px);
     transition: all .5s;
 }
-.icon-menu.collap span:nth-child(2){
+.slicknav_open .slicknav_icon span:nth-child(2){
     opacity: 0;
     transition: all .5s;
 }
-.icon-menu.collap span:nth-child(3){
+.slicknav_open .slicknav_icon span:nth-child(3){
     width: 100%;
     -webkit-transform: rotate(-45deg) translate(5px,-6px);
     transform: rotate(-45deg) translate(5px,-6px);
@@ -126,11 +84,6 @@ copyright{
     }
 }
 @media screen and (max-width: 992px){
-    #header{
-        position: relative;
-        top: 0;
-        background: #332f2b !important;
-    }
     main{
         padding-top: 50px;
     }
