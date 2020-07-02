@@ -1,9 +1,7 @@
 body{
     background-color: white;
     font-family: 'Work Sans', sans-serif !important;
-}
-main{
-    padding: 50px 10%;
+    width: 100%;
 }
 
 .header-area .main-header .menu-wrapper .main-menu ul li a{

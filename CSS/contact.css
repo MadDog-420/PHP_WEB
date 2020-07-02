@@ -1,0 +1,16 @@
+.slider-banner{
+    min-height: 300px;
+    background-image: url(https://goupte.com/es/wp-content/uploads/sites/13/2016/02/contact-banner.png);
+    background-position: center;
+    background-size: cover;
+}
+.hero-cap h2{
+    color: #ffffff;
+    text-transform: uppercase !important;
+}
+.about-details{
+    margin-top: 80px;
+}
+.shop-method-area{
+    margin-bottom: 120px;
+}

@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet">
-    <link href="CSS/style.css" rel="stylesheet">
-    <link href="CSS/slicknav.css" rel="stylesheet">
     <link href="CSS/header-footer.css" rel="stylesheet">
     <header>
         <!-- Header Start -->
@@ -20,15 +17,15 @@
                             <nav>                                                
                                 <ul id="navigation">  
                                     <li><a href="index.php?page=home">Inicio</a></li>
-                                    <li><a href="index.php?page=shop">Tienda</a></li>
-                                    <li><a href="index.php?page=about">Nosotros</a></li>
-                                    <li class="hot"><a href="#">Lo último</a>
+                                    <li class="hot"><a href="index.php?page=shop">Tienda</a></li>
+                                    <li><a href="#">Más</a>
                                         <ul class="submenu">
-                                            <li><a href="shop.html"> Product list</a></li>
-                                            <li><a href="product_details.html"> Product Details</a></li>
+                                            <li><a href="index.php?page=shop#nav-home">Últimos productos</a></li>
+                                            <li><a href="index.php?page=shop#nav-contact">Ofertas</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html">Contacto</a></li>
+                                    <li><a href="index.php?page=about">Nosotros</a></li>
+                                    <li><a href="index.php?page=contact">Contáctanos</a></li>
                                 </ul>
                             </nav>
                         </div>

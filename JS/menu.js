@@ -1,9 +1,0 @@
-$(document).ready(function(){
-    $('.icon-menu').click(function(){
-        $('.icon-menu').toggleClass('collap');
-    });
-    $('.nav-item').click(function(){
-        console.log((this));
-        $(this).addClass("active").siblings().removeClass("active");
-    })
-})
