@@ -7,10 +7,12 @@ if( $_POST )
 
   header('Location: index.php');
   //die();
-  $email = isset( $_POST['email'] ) ? $_POST['email'] : '';
-  $password = isset( $_POST['password'] ) ? $_POST['password'] : '';
+  $nombre = isset( $_POST['nombre'] ) ? $_POST['nombre'] : '';
+  $precio = isset( $_POST['precio'] ) ? $_POST['precio'] : '';
+  $description = isset( $_POST['description'] ) ? $_POST['description'] : '';
+  $stock = isset( $_POST['stock'] ) ? $_POST['stock'] : '';
 
-  add( $email, $password );
+  addP( $nombre, $precio, $description, $stock );
   die();
 
 }
@@ -21,15 +23,11 @@ if( $_POST )
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Curso PHP |  Bienvenidos</title>
-    <link rel="stylesheet" href="./css/foundation.css" />
+    <title>Agregar</title>
+    <link rel="stylesheet" href="css/foundation.css" />
     <script src="./js/vendor/modernizr.js"></script>
   </head>
   <body>
-    
-    <?php require_once('header.php'); ?>
-
-     
     <div class="row">
  
       <div class="large-9 columns">
@@ -38,20 +36,39 @@ if( $_POST )
           <section class="section">
             <div class="content" data-slug="panel1">
               <form method="post">
+                
                 <div class="row">
                   <div class="large-12 columns">
-                    <label>Correo
-                      <input type="text" name="email" placeholder="" />
+                    <label>Nombre*
+                      <input type="text" name="nombre" placeholder="" />
                     </label>
                   </div>
                 </div>
+
                 <div class="row">
                   <div class="large-12 columns">
-                    <label>Contraseña
-                      <input type="text" name="password" placeholder="" />
+                    <label>Precio*
+                      <input type="text" name="precio" placeholder="" />
                     </label>
                   </div>
                 </div>
+
+                <div class="row">
+                  <div class="large-12 columns">
+                    <label>Descripción*
+                      <input type="text" name="description" placeholder="" />
+                    </label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="large-12 columns">
+                    <label>Stock*
+                      <input type="text" name="stock" placeholder="" />
+                    </label>
+                  </div>
+                </div>
+
                 <div class="row">
                   <div class="large-4 columns">
                     <label>
@@ -59,11 +76,9 @@ if( $_POST )
                     </label>
                   </div>
                 </div>
+
               </form>
             </div>
           </section>
         </div>
       </div>
-    
-
-    <?php require_once('footer.php'); ?>

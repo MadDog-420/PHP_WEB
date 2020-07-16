@@ -1,8 +1,8 @@
 <?php
 	include_once('utilities.php');
 	include_once('db/database_utilities.php');
-	$result = run_query('clientes');
-	$result2 = run_query('productos');
+	$result = run_query('productos');
+	$result2 = run_query('clientes');
 	$result3 = run_query('ventas');
 ?>
 <!DOCTYPE html>
@@ -94,8 +94,8 @@
 											<td><?php echo $vend['total_final']; ?></td>
 											<td><?php echo $vend['fecha_vent']; ?></td>
 											<td>
-												<a href="./details.php?id=<?php echo $user['id']; ?>" class="button tiny secondary">Detalles</a>
-												<a href="./delete.php?id=<?php echo $user['id']; ?>" class="button tiny alert">Eliminar</a>
+												<a href="details.php?id=<?php echo $user['id']; ?>" class="button tiny secondary">Detalles</a>
+												<a href="delete.php?id=<?php echo $user['id']; ?>" class="button tiny alert">Eliminar</a>
 											</td>
 										</tr>
 									<?php
@@ -124,7 +124,7 @@
 						<section class="section">
 							<div class="content" data-slug="panel1">
 								<div class="row">
-									<a href="./new_user.php" class="button tiny success">Nuevo</a>
+									<a href="./new_product.php" class="button tiny success">Nuevo</a>
 								</div>
 								<table>
 									<thead>
@@ -139,7 +139,7 @@
 									</thead>
 									<tbody>
 									<?php 
-										while($prod = $result2->fetch_assoc())
+										while($prod = $result->fetch_assoc())
 										{
 									?>
 										<tr>
@@ -149,8 +149,8 @@
 											<td><?php echo $prod['descripcion']; ?></td>
 											<td><?php echo $prod['stock']; ?></td>
 											<td>
-												<a href="./details.php?id=<?php echo $prod['id']; ?>" class="button tiny secondary">Detalles</a>
-												<a href="./delete.php?id=<?php echo $prod['id']; ?>" class="button tiny alert">Eliminar</a>
+												<a href="details.php?id=<?php echo $prod['id_producto']; ?>" class="button tiny secondary">Detalles</a>
+												<a href="delete.php?id=<?php echo $prod['id_producto']; ?>" class="button tiny alert">Eliminar</a>
 											</td>
 										</tr>
 									<?php
@@ -194,7 +194,7 @@
 									</thead>
 									<tbody>
 									<?php 
-										while($user = $result->fetch_assoc())
+										while($user = $result2->fetch_assoc())
 										{
 									?>
 										<tr>

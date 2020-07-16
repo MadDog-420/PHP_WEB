@@ -17,36 +17,36 @@ function run_query($tab)
 
 }
 
-function add( $email, $password )
+function addP( $nombre, $precio, $description, $stock )
 {
 	global $mysqli;
-	$sql = "INSERT INTO user (id, email, password) VALUES (null, '{$email}','{$password}')";
+	$sql = "INSERT INTO productos (id_producto, nombre, precio, descripcion, stock) VALUES (null, '{$nombre}','{$precio}', '{$description}','{$stock}')";
 	$mysqli->query($sql);
 
 }
 
-function update( $id, $email, $password )
+function updateP( $id, $nombre, $precio, $description, $stock )
 {
 	global $mysqli;
-	$sql = "UPDATE user SET email = '{$email}', password = '{$password}' WHERE id = {$id}";
+	$sql = "UPDATE productos SET nombre = '{$nombre}', precio = '{$precio}', descripcion = '{$description}', stock = '{$stock}' WHERE `productos`.`id_producto` = {$id}";
 	$mysqli->query( $sql );
 
 }
 
-function delete( $id )
+function deleteP( $id )
 {
 	global $mysqli;
-	$sql = "DELETE FROM user WHERE id = {$id}";
+	$sql = "DELETE FROM productos WHERE id_producto = {$id}";
 	$mysqli->query($sql);
 }
 
-function get_user_by_id( $id )
+function get_product_by_id( $id )
 {
 	global $mysqli;
-	$sql = "SELECT * FROM user WHERE id = {$id}";
+	echo "id: $id";
+	$sql = "SELECT * FROM `productos` WHERE `id_producto` = {$id}";
 	$result = $mysqli->query($sql);
 	if( $result->num_rows )
 		return $result->fetch_assoc();
 	return false;
-
 }

@@ -1,23 +1,25 @@
 <?php
-include_once('utilities.php');
-include_once('db/database_utilities.php');
+  include_once('utilities.php');
+  include_once('db/database_utilities.php');
 
-$id = isset( $_GET['id'] ) ? $_GET['id'] : '';
+  $id = isset( $_GET['id'] ) ? $_GET['id'] : '';
 
-if( $_POST )
-{
+  if( $_POST )
+  {
 
-  header('Location: index.php');
-  //die();
-  $email = isset( $_POST['email'] ) ? $_POST['email'] : '';
-  $password = isset( $_POST['password'] ) ? $_POST['password'] : '';
+    header('Location: index.php');
+    //die();
+    $nombre = isset( $_POST['nombre'] ) ? $_POST['nombre'] : '';
+    $precio = isset( $_POST['precio'] ) ? $_POST['precio'] : '';
+    $description = isset( $_POST['description'] ) ? $_POST['description'] : '';
+    $stock = isset( $_POST['stock'] ) ? $_POST['stock'] : '';
 
-  update( $id, $email, $password );
-  die();
+    updateP( $id, $nombre, $precio, $description, $stock );
+    die();
 
-}
+  }
 
-$user = get_user_by_id( $id );
+  $producto = get_product_by_id( $id );
 
 ?>
 <!doctype html>
@@ -25,15 +27,11 @@ $user = get_user_by_id( $id );
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Curso PHP |  Bienvenidos</title>
-    <link rel="stylesheet" href="./css/foundation.css" />
-    <script src="./js/vendor/modernizr.js"></script>
+    <title>Detalles</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
   </head>
   <body>
-    
-    <?php require_once('header.php'); ?>
-
-     
     <div class="row">
  
       <div class="large-9 columns">
@@ -42,20 +40,39 @@ $user = get_user_by_id( $id );
           <section class="section">
             <div class="content" data-slug="panel1">
               <form method="post">
+                
                 <div class="row">
                   <div class="large-12 columns">
-                    <label>Correo
-                      <input type="text" name="email" value="<?php echo $user['email']; ?>" placeholder="" />
+                    <label>Nombre
+                      <input type="text" name="nombre" value="<?php echo $producto['nombre']; ?>" placeholder="" />
                     </label>
                   </div>
                 </div>
+
                 <div class="row">
                   <div class="large-12 columns">
-                    <label>Contraseña
-                      <input type="text" name="password" value="<?php echo $user['password']; ?>" placeholder="" />
+                    <label>Precio
+                      <input type="text" name="precio" value="<?php echo $producto['precio']; ?>" placeholder="" />
                     </label>
                   </div>
                 </div>
+
+                <div class="row">
+                  <div class="large-12 columns">
+                    <label>Stock
+                      <input type="text" name="stock" value="<?php echo $producto['stock']; ?>" placeholder="" />
+                    </label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="large-12 columns">
+                    <label>Descripción
+                      <textarea name="description" rows="10" type="text" value="" placeholder=""><?php echo $producto['descripcion']; ?></textarea>
+                    </label>
+                  </div>
+                </div>
+
                 <div class="row">
                   <div class="large-4 columns">
                     <label>
@@ -68,6 +85,3 @@ $user = get_user_by_id( $id );
           </section>
         </div>
       </div>
-    
-
-    <?php require_once('footer.php'); ?>
