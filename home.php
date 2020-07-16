@@ -91,15 +91,16 @@
             <div class="col-xl-7 col-lg-8 col-md-10">
                 <div class="section-tittle mb-70 text-center">
                     <h2>Populares</h2>
-                    <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+                    <p>Encuentra aquí los productos que están marcando tendencias.</p>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="row">
                 <?php
-                    for($i=0;$i<=3;$i++){
-                        echo "<div class='col-xl-4 col-lg-4 col-md-6 col-sm-6'>
+                    while ($product = $result->fetch_assoc()){
+                ?>
+                        <div class='col-xl-4 col-lg-4 col-md-6 col-sm-6'>
                             <div class='single-popular-items mb-50 text-center'>
                                 <div class='popular-img'>
                                     <img src='IMG/laptop-hp-15-dy1004la-156-i5-10ma-8gb-256ssd-16gb-optane-D_NQ_NP_890723-MPE40415313278_012020-F.jpg' alt=''>
@@ -108,11 +109,12 @@
                                     </div>
                                 </div>
                                 <div class='popular-caption'>
-                                    <h3><a href='product_details.html'>Thermo Ball Etip Gloves</a></h3>
-                                    <span>$ 45,743</span>
+                                    <h3><a href='product_details.html'><?php echo $product['nombre']; ?></a></h3>
+                                    <span><?php echo $product['precio']; ?> PEN</span>
                                 </div>
                             </div>
-                        </div>";
+                        </div>
+                <?php
                     }
                 ?>
             </div>

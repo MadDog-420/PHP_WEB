@@ -54,7 +54,8 @@
                 <div class="row">
                     <?php
                         for($i=0;$i<=4;$i++){
-                            echo "<div class='col-xl-4 col-lg-4 col-md-6 col-sm-6'>
+                    ?>
+                            <div class='col-xl-4 col-lg-4 col-md-6 col-sm-6'>
                                 <div class='single-popular-items mb-50 text-center'>
                                     <div class='popular-img'>
                                         <img src='IMG/laptop-hp-15-dy1004la-156-i5-10ma-8gb-256ssd-16gb-optane-D_NQ_NP_890723-MPE40415313278_012020-F.jpg' alt=''>
@@ -70,7 +71,8 @@
                                         <span>$ 45,743</span>
                                     </div>
                                 </div>
-                            </div>";
+                            </div>
+                    <?php
                         }
                     ?>
                 </div>

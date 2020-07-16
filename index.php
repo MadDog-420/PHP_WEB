@@ -13,11 +13,14 @@
         else if($_GET['page'] == "contact")
             $_SESSION['page'] = "contact";
     }
+    include_once('utilities.php');
+    include_once('db/database_utilities.php');
+    $result = run_query();
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>BRUTAL</title>
+        <title>PEARL STORE</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, 
         initial-scale=1, maximum-scale=1, minimum-scale=1">
@@ -42,7 +45,7 @@
         <script src="https://kit.fontawesome.com/a7b3ea38a5.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css2?family=MuseoModerno&family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
         <!-- Optional JavaScript -->
-        <script src="JS/menu.js"></script>
+        
     </head>
     <body>
         <!--? Preloader Start -->
