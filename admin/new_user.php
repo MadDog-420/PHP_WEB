@@ -8,41 +8,11 @@ if( $_POST )
   header('Location: index.php');
   //die();
   $nombre = isset( $_POST['nombre'] ) ? $_POST['nombre'] : '';
-  $precio = isset( $_POST['precio'] ) ? $_POST['precio'] : '';
-  $description = isset( $_POST['description'] ) ? $_POST['description'] : '';
-  $stock = isset( $_POST['stock'] ) ? $_POST['stock'] : '';
+  $mail = isset( $_POST['correo'] ) ? $_POST['correo'] : '';
+  $pass = isset( $_POST['contrasena'] ) ? $_POST['contrasena'] : '';
+  $adress = isset( $_POST['direccion'] ) ? $_POST['direccion'] : '';
 
-  $statusMsg = '';
-  $photo="40022.png";
-  $targetDir = "../uploads/";
-
-  if(!empty($_FILES["file"]["name"])){
-      // Allow certain file formats
-      $allowTypes = array('jpg','png','jpeg','gif','pdf');
-      // File upload path
-      $fileName = basename($_FILES["file"]["name"]);
-      $targetFilePath = $targetDir . $fileName;
-      $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
-
-      if(in_array($fileType, $allowTypes)){
-            // Upload file to server
-          if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){
-                // Insert image file name into database
-              $photo=$fileName;
-          }else{
-                $statusMsg = "Sorry, there was an error uploading your file.";
-          }
-      }else{
-            $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
-      }
-  }else{
-    $statusMsg = 'Please select a file to upload.';
-  }
-
-  // Display status message
-  echo $statusMsg;
-
-  addP( $nombre, $precio, $description, $stock, $photo );
+  addC( $nombre, $mail, $pass, $adress );
   die();
 
 }
@@ -78,33 +48,25 @@ if( $_POST )
 
                 <div class="row">
                   <div class="large-12 columns">
-                    <label>Precio*
-                      <input type="text" name="precio" placeholder="" />
+                    <label>Correo*
+                      <input type="text" name="correo" placeholder="" />
                     </label>
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="large-12 columns">
-                    <label>Stock*
-                      <input type="text" name="stock" placeholder="" />
+                    <label>Contraseña*
+                      <input type="text" name="contrasena" placeholder="" />
                     </label>
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="large-12 columns">
-                    <label>Descripción*
-                      <textarea name="description" rows="10" type="text" value="" placeholder=""></textarea>
+                    <label>Dirección*
+                      <textarea name="direccion" rows="3" type="text" value="" placeholder=""></textarea>
                     </label>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="large-12 columns"  id="upload">
-                      <label>Foto del producto
-                        <input type="file" name="file" id="fileInput" />
-                      </label>
                   </div>
                 </div>
 

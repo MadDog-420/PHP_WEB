@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+<?php require_once "header.php";?>
 <link href="CSS/contact.css" rel="stylesheet">
 <!--? Hero Area Start-->
 <div class="slider-area ">
@@ -55,20 +56,20 @@
                     <span class="contact-info__icon"><i class="fas fa-home"></i></span>
                     <div class="media-body">
                         <h3>Arequipa, Perú.</h3>
-                        <p>Rosemead, CA 91770</p>
+                        <p>Tacna y Arica 160</p>
                     </div>
                 </div>
                 <div class="media contact-info">
                     <span class="contact-info__icon"><i class="fas fa-mobile-alt"></i></span>
                     <div class="media-body">
-                        <h3>+1 253 565 2365</h3>
-                        <p>Mon to Fri 9am to 6pm</p>
+                        <h3>+51 992 502 574</h3>
+                        <p>Lun a Vie  de 9am a 6pm</p>
                     </div>
                 </div>
                 <div class="media contact-info">
                     <span class="contact-info__icon"><i class="far fa-paper-plane"></i></span>
                     <div class="media-body">
-                        <h3>support@colorlib.com</h3>
+                        <h3>consultas@pearl.com</h3>
                         <p>Envíanos tu consulta!</p>
                     </div>
                 </div>
@@ -76,3 +77,4 @@
         </div>
     </div>
 </section>
+<?php require_once "footer.php";?>

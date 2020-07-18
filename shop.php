@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+
+<?php 
+    require_once "header.php";
+    include "carrito.php";
+?>
 <link rel="stylesheet" href="CSS/shop.css">
 <!-- Hero Area Start-->
 <div class="slider-area ">
@@ -33,19 +37,6 @@
             <!-- Grid and List view -->
             <div class="grid-list-view">
             </div>
-            <!-- Select items -->
-            <div class="select-this">
-                <form action="#">
-                    <div class="select-itms">
-                        <select name="select" id="select1">
-                            <option value="">A - Z</option>
-                            <option value="">Z - A</option>
-                            <option value="">0$ - 10 000$</option>
-                            <option value="">10 000$ - 0$</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
         </div>
         <!-- Nav Card -->
         <div class="tab-content" id="nav-tabContent">
@@ -53,25 +44,31 @@
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                 <div class="row">
                     <?php
-                        for($i=0;$i<=4;$i++){
+                        while ($product = $result->fetch_assoc()){
                     ?>
                             <div class='col-xl-4 col-lg-4 col-md-6 col-sm-6'>
-                                <div class='single-popular-items mb-50 text-center'>
-                                    <div class='popular-img'>
-                                        <img src='IMG/laptop-hp-15-dy1004la-156-i5-10ma-8gb-256ssd-16gb-optane-D_NQ_NP_890723-MPE40415313278_012020-F.jpg' alt=''>
-                                        <div class='img-cap'>
-                                            <span>Añadir al carrito</span>
-                                        </div>
-                                        <div class='favorit-items'>
-                                            <span class='flaticon-heart'></span>
-                                        </div>
-                                    </div>
-                                    <div class='popular-caption'>
-                                        <h3><a href='product_details.html'>Thermo Ball Etip Gloves</a></h3>
-                                        <span>$ 45,743</span>
+                            <div class='single-popular-items mb-50 text-center'>
+                            <form action="" method="post">
+                                <div class='popular-img'>
+                                    <img src='uploads/<?php echo $product['photo'];?>' alt=''>
+                                    <div class='img-cap'>
+                                        <button name="btn_action" value="agregar" class="cart-button" style="width: 100%; padding: 20px 0; background-color: #f81f1f !important; border: none !important;" type="submit">
+                                            Añadir al carrito
+                                        </button>
                                     </div>
                                 </div>
+                                <div class='popular-caption'>
+                                    <h3><?php echo $product['nombre']; ?></h3>
+                                    <span><?php echo $product['precio']; ?> PEN</span>
+                                    <p><?php echo $product['descripcion']; ?></p>
+                                </div>
+                                <input type="hidden" name="id" value="<?php echo openssl_encrypt($product['id_producto'],COD,KEY);?>">
+                                <input type="hidden" name="name" value="<?php echo openssl_encrypt($product['nombre'],COD,KEY);?>">
+                                <input type="hidden" name="precio" value="<?php echo openssl_encrypt($product['precio'],COD,KEY);?>">
+                                <input type="hidden" name="cantidad" value="<?php echo openssl_encrypt(1,COD,KEY);?>">
+                            </form>
                             </div>
+                        </div>
                     <?php
                         }
                     ?>
@@ -81,24 +78,32 @@
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                 <div class="row">
                     <?php
-                        for($i=0;$i<=9;$i++){
-                            echo "<div class='col-xl-4 col-lg-4 col-md-6 col-sm-6'>
-                                <div class='single-popular-items mb-50 text-center'>
-                                    <div class='popular-img'>
-                                        <img src='IMG/laptop-hp-15-dy1004la-156-i5-10ma-8gb-256ssd-16gb-optane-D_NQ_NP_890723-MPE40415313278_012020-F.jpg' alt=''>
-                                        <div class='img-cap'>
-                                            <span>Añadir al carrito</span>
-                                        </div>
-                                        <div class='favorit-items'>
-                                            <span class='flaticon-heart'></span>
-                                        </div>
-                                    </div>
-                                    <div class='popular-caption'>
-                                        <h3><a href='product_details.html'>Thermo Ball Etip Gloves</a></h3>
-                                        <span>$ 45,743</span>
+                        while ($product = $result2->fetch_assoc()){
+                    ?>
+                            <div class='col-xl-4 col-lg-4 col-md-6 col-sm-6'>
+                            <div class='single-popular-items mb-50 text-center'>
+                            <form action="" method="post">
+                                <div class='popular-img'>
+                                    <img src='uploads/<?php echo $product['photo'];?>' alt=''>
+                                    <div class='img-cap'>
+                                        <button name="agregar" value="agregar" class="cart-button" style="width: 100%; padding: 20px 0; background-color: #f81f1f !important; border: none !important;" type="submit">
+                                            Añadir al carrito
+                                        </button>
                                     </div>
                                 </div>
-                            </div>";
+                                <div class='popular-caption'>
+                                    <h3><?php echo $product['nombre']; ?></h3>
+                                    <span><?php echo $product['precio']; ?> PEN</span>
+                                    <p><?php echo $product['descripcion']; ?></p>
+                                </div>
+                                <input type="hidden" name="id" value="<?php echo openssl_encrypt($product['id_producto'],COD,KEY);?>">
+                                <input type="hidden" name="name" value="<?php echo openssl_encrypt($product['nombre'],COD,KEY);?>">
+                                <input type="hidden" name="precio" value="<?php echo openssl_encrypt($product['precio'],COD,KEY);?>">
+                                <input type="hidden" name="cantidad" value="<?php echo openssl_encrypt(1,COD,KEY);?>">
+                            </form>
+                            </div>
+                        </div>
+                    <?php
                         }
                     ?>       
                 </div>
@@ -107,24 +112,32 @@
             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                 <div class="row">
                     <?php
-                        for($i=0;$i<=3;$i++){
-                            echo "<div class='col-xl-4 col-lg-4 col-md-6 col-sm-6'>
-                                <div class='single-popular-items mb-50 text-center'>
-                                    <div class='popular-img'>
-                                        <img src='IMG/laptop-hp-15-dy1004la-156-i5-10ma-8gb-256ssd-16gb-optane-D_NQ_NP_890723-MPE40415313278_012020-F.jpg' alt=''>
-                                        <div class='img-cap'>
-                                            <span>Añadir al carrito</span>
-                                        </div>
-                                        <div class='favorit-items'>
-                                            <span class='flaticon-heart'></span>
-                                        </div>
-                                    </div>
-                                    <div class='popular-caption'>
-                                        <h3><a href='product_details.html'>Thermo Ball Etip Gloves</a></h3>
-                                        <span>$ 45,743</span>
+                        while ($product = $result3->fetch_assoc()){
+                    ?>
+                            <div class='col-xl-4 col-lg-4 col-md-6 col-sm-6'>
+                            <div class='single-popular-items mb-50 text-center'>
+                            <form action="" method="post">
+                                <div class='popular-img'>
+                                    <img src='uploads/<?php echo $product['photo'];?>' alt=''>
+                                    <div class='img-cap'>
+                                        <button name="agregar" value="agregar" class="cart-button" style="width: 100%; padding: 20px 0; background-color: #f81f1f !important; border: none !important;" type="submit">
+                                            Añadir al carrito
+                                        </button>
                                     </div>
                                 </div>
-                            </div>";
+                                <div class='popular-caption'>
+                                    <h3><?php echo $product['nombre']; ?></h3>
+                                    <span><?php echo $product['precio']; ?> PEN</span>
+                                    <p><?php echo $product['descripcion']; ?></p>
+                                </div>
+                                <input type="hidden" name="id" value="<?php echo openssl_encrypt($product['id_producto'],COD,KEY);?>">
+                                <input type="hidden" name="name" value="<?php echo openssl_encrypt($product['nombre'],COD,KEY);?>">
+                                <input type="hidden" name="precio" value="<?php echo openssl_encrypt($product['precio'],COD,KEY);?>">
+                                <input type="hidden" name="cantidad" value="<?php echo openssl_encrypt(1,COD,KEY);?>">
+                            </form>
+                            </div>
+                        </div>
+                    <?php
                         }
                     ?>       
                 </div>
@@ -134,3 +147,4 @@
     </div>           
 </section>
 <!-- Latest Products End -->
+<?php require_once "footer.php";?>

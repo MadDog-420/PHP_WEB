@@ -1,6 +1,6 @@
 <?php
 	include_once('utilities.php');
-	include_once('db/database_utilities.php');
+	include_once('../db/database_utilities.php');
 	$result = run_query('productos');
 	$result2 = run_query('clientes');
 	$result3 = run_query('ventas');
@@ -9,7 +9,7 @@
 <html class="no-js">
 <head>
 	<meta charset="utf-8">
-	<title>PEAR STORE</title>
+	<title>ADMIN</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet'>
@@ -26,19 +26,19 @@
 
 <body id="welcome">
 <aside class="left-sidebar">
-<div class="logo">
-	<a href="#welcome">
-		<h1>Pear Store</h1>
-	</a>
-</div>
-<nav class="left-nav">
-	<ul id="nav">
-		<li class="current"><a href="#welcome">Bienvenido</a></li>
-		<li><a href="#vend">Ver ventas</a></li>
-		<li><a href="#prod">Ver productos</a></li>
-		<li><a href="#user">Ver usuarios</a></li>
-	</ul>
-</nav>
+	<div class="logo">
+		<a href="#welcome">
+			<h1>Pear Store</h1>
+		</a>
+	</div>
+	<nav class="left-nav">
+		<ul id="nav">
+			<li class="current"><a href="#welcome">Bienvenido</a></li>
+			<li><a href="#vend">Ver ventas</a></li>
+			<li><a href="#prod">Ver productos</a></li>
+			<li><a href="#user">Ver usuarios</a></li>
+		</ul>
+	</nav>
 </aside>
 <!-- Main Wrapper -->
 <div id="main-wrapper">
@@ -54,6 +54,7 @@
 		<div class="features">
 			<h2 class="twenty">Logo</h2>
 			<img style="width: 200px; margin: 0 auto" src="../IMG/pear.png">
+			<h3 style="width: 100%; display: flex;"><a style="margin: auto;" href="../index.php">Ir al sitio</a></h3>
 		</div>
 	</section>
 
@@ -72,6 +73,7 @@
 								<table>
 									<thead>
 										<tr>
+											<th width="200">ID Venta</th>
 											<th width="200">ID Cliente</th>
 											<th width="200">ID Producto</th>
 											<th width="50">Cantidad</th>
@@ -87,6 +89,7 @@
 										{
 									?>
 										<tr>
+											<td><?php echo $vend['id_venta']; ?></td>
 											<td><?php echo $vend['id_cliente']; ?></td>
 											<td><?php echo $vend['id_producto']; ?></td>
 											<td><?php echo $vend['cantidad']; ?></td>
@@ -94,8 +97,7 @@
 											<td><?php echo $vend['total_final']; ?></td>
 											<td><?php echo $vend['fecha_vent']; ?></td>
 											<td>
-												<a href="details.php?id=<?php echo $user['id']; ?>" class="button tiny secondary">Detalles</a>
-												<a href="delete.php?id=<?php echo $user['id']; ?>" class="button tiny alert">Eliminar</a>
+												<a href="delete.php?id=<?php echo $vend['id_venta']; ?>&db=ventas" class="button tiny alert">Eliminar</a>
 											</td>
 										</tr>
 									<?php
@@ -149,8 +151,8 @@
 											<td><?php echo $prod['descripcion']; ?></td>
 											<td><?php echo $prod['stock']; ?></td>
 											<td>
-												<a href="details.php?id=<?php echo $prod['id_producto']; ?>" class="button tiny secondary">Detalles</a>
-												<a href="delete.php?id=<?php echo $prod['id_producto']; ?>" class="button tiny alert">Eliminar</a>
+												<a href="product_details.php?id=<?php echo $prod['id_producto']; ?>" class="button tiny secondary">Detalles</a>
+												<a href="delete.php?id=<?php echo $prod['id_producto']; ?>&db=productos" class="button tiny alert">Eliminar</a>
 											</td>
 										</tr>
 									<?php
@@ -204,8 +206,8 @@
 											<td><?php echo $user['correo']; ?></td>
 											<td><?php echo $user['contrasena']; ?></td>
 											<td>
-												<a href="./details.php?id=<?php echo $prod['id']; ?>" class="button tiny secondary">Detalles</a>
-												<a href="./delete.php?id=<?php echo $prod['id']; ?>" class="button tiny alert">Eliminar</a>
+												<a href="./user_details.php?id=<?php echo $user['id_cliente']; ?>" class="button tiny secondary">Detalles</a>
+												<a href="./delete.php?id=<?php echo $user['id_cliente']; ?>&db=clientes" class="button tiny alert">Eliminar</a>
 											</td>
 										</tr>
 									<?php
@@ -222,24 +224,5 @@
 	</section>
 
 </div>
-<div class="copy-cont row">
-	<copyright>&copy; 2020 MadDog. All rights reserved.</copyright>
-</div>
-</div>
+<?php require_once('footer.php'); ?>
 
-<!-- Essential JavaScript Libraries
-	==============================================-->
-	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="js/jquery.nav.js"></script>
-	<script type="text/javascript" src="syntax-highlighter/scripts/shCore.js"></script> 
-	<script type="text/javascript" src="syntax-highlighter/scripts/shBrushXml.js"></script> 
-	<script type="text/javascript" src="syntax-highlighter/scripts/shBrushCss.js"></script> 
-	<script type="text/javascript" src="syntax-highlighter/scripts/shBrushJScript.js"></script> 
-	<script type="text/javascript" src="syntax-highlighter/scripts/shBrushPhp.js"></script> 
-	<script type="text/javascript">
-		SyntaxHighlighter.all()
-	</script>
-	<script type="text/javascript" src="js/custom.js"></script>
-
-</body>
-</html>
