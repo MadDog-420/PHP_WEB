@@ -14,7 +14,13 @@ function run_query($tab)
 	global $mysqli, $result;
 	$sql = "SELECT * FROM {$tab}";
 	return $mysqli->query($sql);
+}
 
+function run_query_esp($tab,$param1,$param2,$param3,$param4)
+{
+	global $mysqli, $result;
+	$sql = "SELECT * FROM {$tab} {$param1} {$param2} {$param3} {$param4}";
+	return $mysqli->query($sql);
 }
 
 function entrar($email, $pass)

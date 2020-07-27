@@ -1,6 +1,7 @@
 
 <?php 
     require_once "header.php";
+    $result = run_query("productos");
     include "carrito.php";
     //echo $mensaje;
 ?>

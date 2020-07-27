@@ -20,9 +20,6 @@
     */
     include_once('utilities.php');
     include_once('db/database_utilities.php');
-    $result = run_query("productos");
-    $result2 = run_query("productos");
-    $result3 = run_query("productos");
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,17 +33,15 @@
         
         <!-- CSS here -->
         <link rel="stylesheet" href="CSS/owl.carousel.min.css">
-        <link rel="stylesheet" href="CSS/flaticon.css">
         <link rel="stylesheet" href="CSS/slicknav.css">
         <link rel="stylesheet" href="CSS/animate.min.css">
         <link rel="stylesheet" href="CSS/magnific-popup.css">
-        <link rel="stylesheet" href="CSS/fontawesome-all.min.css">
-        <link rel="stylesheet" href="CSS/themify-icons.css">
         <link rel="stylesheet" href="CSS/slick.css">
         <link rel="stylesheet" href="CSS/nice-select.css">
         <link rel="stylesheet" href="CSS/style.css">
         <link href="CSS/header-footer.css" rel="stylesheet">
         
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@9/dist/sweetalert2.min.js"></script>
         <!-- JQuery -->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <!-- FontAwesome -->

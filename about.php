@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php 
+    require_once "header.php";
+?>
 <link href="CSS/about.css" rel="stylesheet">
 <!-- Hero Area Start-->
 <div class="slider-area ">
@@ -69,3 +71,6 @@
     </div>
 </div>
 <!-- Shop Method End-->
+<?php 
+    require_once "footer.php";
+?>

@@ -1,6 +1,9 @@
 
 <?php 
     require_once "header.php";
+    $result = run_query_esp("productos","ORDER BY","id_producto","desc","LIMIT 2");
+    $result2 = run_query("productos");
+    $result3 = run_query_esp("productos","WHERE","precio <","800","");
     include "carrito.php";
 ?>
 <link rel="stylesheet" href="CSS/shop.css">

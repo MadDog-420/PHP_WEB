@@ -1,6 +1,9 @@
 
-<?php require_once "header.php";?>
+<?php 
+    require_once "header.php";
+?>
 <link href="CSS/contact.css" rel="stylesheet">
+<script src="JS/form.js"></script>
 <!--? Hero Area Start-->
 <div class="slider-area ">
     <div class="single-slider slider-banner d-flex align-items-center">
@@ -22,33 +25,30 @@
             <div class="col-12">
                 <h2 class="contact-title">Hablemos</h2>
             </div>
-            <div class="col-lg-8">
+            <div class="col-lg-8 mb-5">
                 <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="form-group">
-                                <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder="Ingresa el mensaje"></textarea>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Ingresa tu nombre">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Ingrese el asunto">
-                            </div>
-                        </div>
+                    <h1 id="message">Envíanos tus dudas</h1><small id="smallMessage"> </small>
+                    <div class="field">
+                        <textarea class="form-control w-100" name="text" id="text" 
+                        cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" 
+                        placeholder=" Enter Message" autocomplete="off"></textarea>
                     </div>
-                    <div class="form-group mt-3">
-                        <button type="submit" class="button button-contactForm boxed-btn">Enviar</button>
+                    <div class="field">
+                        <input class="form-control valid" name="name" id="name" 
+                        type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" 
+                        placeholder="Enter your name" autocomplete="off">
                     </div>
+                    <div class="field">
+                        <input class="form-control valid" name="email" id="email" 
+                        type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" 
+                        placeholder="Email">
+                    </div>
+                    <div class="field">
+                        <input class="form-control" name="subject" id="subject" 
+                        type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" 
+                        placeholder="Enter Subject" autocomplete="off">
+                    </div>
+                    <button id="submit" name="submit" onclick="sendEmail()">ENVIAR</button>
                 </form>
             </div>
             <div class="col-lg-3 offset-lg-1">
