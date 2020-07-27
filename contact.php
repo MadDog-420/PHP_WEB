@@ -1,9 +1,10 @@
 
 <?php 
     require_once "header.php";
+    require_once "contact_process.php"
 ?>
 <link href="CSS/contact.css" rel="stylesheet">
-<script src="JS/form.js"></script>
+<script src="JS/form.js" type="text/javascript"></script>
 <!--? Hero Area Start-->
 <div class="slider-area ">
     <div class="single-slider slider-banner d-flex align-items-center">
@@ -26,7 +27,7 @@
                 <h2 class="contact-title">Hablemos</h2>
             </div>
             <div class="col-lg-8 mb-5">
-                <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                <form class="form-contact contact_form" id="contactForm" novalidate="novalidate" method="post">
                     <h1 id="message">Envíanos tus dudas</h1><small id="smallMessage"> </small>
                     <div class="field">
                         <textarea class="form-control w-100" name="text" id="text" 
@@ -48,7 +49,7 @@
                         type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" 
                         placeholder="Enter Subject" autocomplete="off">
                     </div>
-                    <button id="submit" name="submit" onclick="sendEmail()">ENVIAR</button>
+                    <button type="submit" id="submit" value="Send an Email" name="contact">ENVIAR</button>
                 </form>
             </div>
             <div class="col-lg-3 offset-lg-1">

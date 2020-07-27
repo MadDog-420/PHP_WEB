@@ -1,6 +1,6 @@
 $( document ).ready( function(){
 
-	const form = document.querySelector('form');
+	const form = document.getElementById('contactForm');
 	const message = document.getElementById('message');
 	const textmessage = message.textContent;
 	const smallMessage = document.getElementById('smallMessage');
@@ -56,37 +56,6 @@ $( document ).ready( function(){
 	}
 
 	formValidation();
-
-	function sendEmail(){
-		
-		if(isNotEmpty(text) && isNotEmpty(name) && 
-			isNotEmpty(email) && isNotEmpty(subject)){
-
-			$.ajax({
-				url: 'contact_process.php',
-				method: 'POST',
-				dataType: 'json',
-				data:{
-					text: text.val(), 
-					name: name.val(),
-					email: email.val(),
-					subject: subject.val()
-				}, success: function(response){
-					form.reset();
-					form.innerHTML = '<h1>Listo!</h1><p class="success-message">Trataremos de responderte lo más pronto posible</p>';
-				}
-			});
-
-		}
-	}
-
-	function isNotEmpty(caller){
-		if(caller.val()==""){
-			return false;
-		} else {
-			return true;
-		}
-	}
 	
 });
 
